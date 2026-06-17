@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Isabela · 3 anos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ivory:#FBF8F1;
+    --cream:#F3EDE0;
+    --gold:#C9A84C;
+    --gold-soft:#E3D3A0;
+    --green:#5F7A52;
+    --green-deep:#3E5237;
+    --ink:#3A3730;
+    --ink-soft:#6E685C;
+    --petal:#FCFBF7;
+    --yolk:#E8B84B;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Jost',sans-serif;
+    background:var(--ivory);
+    color:var(--ink);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:560px;margin:0 auto;position:relative;}
+
+  /* ---- decorative svg daisies ---- */
+  .daisy-svg{position:absolute;pointer-events:none;z-index:1;opacity:.9;}
+  .spin-slow{animation:spin 26s linear infinite;transform-origin:center;}
+  .spin-rev{animation:spin 32s linear infinite reverse;transform-origin:center;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity 1.1s ease,transform 1.1s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---- HERO ---- */
+  .hero{
+    position:relative;text-align:center;
+    padding:70px 28px 56px;
+    background:
+      radial-gradient(120% 80% at 50% 0%, #FFFFFF 0%, var(--ivory) 55%, var(--cream) 100%);
+    overflow:hidden;
+  }
+  .eyebrow{
+    font-size:12px;letter-spacing:5px;text-transform:uppercase;
+    color:var(--gold);font-weight:500;margin-bottom:22px;
+  }
+  .hero h1{
+    font-family:'Cormorant Garamond',serif;
+    font-weight:500;font-size:clamp(64px,22vw,104px);
+    line-height:.92;color:var(--green-deep);letter-spacing:1px;
+  }
+  .hero .age{
+    font-family:'Cormorant Garamond',serif;font-style:italic;
+    font-size:22px;color:var(--gold);margin-top:6px;letter-spacing:1px;
+  }
+  .rule{
+    width:54px;height:1px;background:var(--gold);
+    margin:26px auto 0;position:relative;
+  }
+  .rule::before,.rule::after{
+    content:"";position:absolute;top:50%;width:5px;height:5px;
+    border-radius:50%;background:var(--gold);transform:translateY(-50%);
+  }
+  .rule::before{left:-12px;}
+  .rule::after{right:-12px;}
+
+  /* ---- portrait ---- */
+  .portrait-wrap{position:relative;width:248px;height:310px;margin:46px auto 0;}
+  .portrait{
+    position:absolute;inset:0;overflow:hidden;
+    border-radius:50% 50% 50% 50% / 56% 56% 44% 44%;
+    background:var(--cream);
+    box-shadow:0 24px 50px -18px rgba(62,82,55,.45);
+    border:1px solid rgba(201,168,76,.4);
+    display:flex;align-items:center;justify-content:center;
+  }
+  .portrait img{width:100%;height:100%;object-fit:cover;}
+  .ph{color:var(--ink-soft);font-size:12px;letter-spacing:1px;text-align:center;padding:20px;line-height:1.8;text-transform:uppercase;}
+  .portrait-wrap .corner{position:absolute;z-index:3;}
+
+  /* ---- section ---- */
+  section.block{padding:64px 32px;position:relative;}
+  .label{
+    font-size:12px;letter-spacing:4px;text-transform:uppercase;
+    color:var(--gold);text-align:center;margin-bottom:18px;font-weight:500;
+  }
+  .heading{
+    font-family:'Cormorant Garamond',serif;font-weight:500;
+    font-size:34px;color:var(--green-deep);text-align:center;
+    line-height:1.15;margin-bottom:26px;
+  }
+  .lead{
+    font-size:16px;line-height:1.95;color:var(--ink-soft);
+    text-align:center;font-weight:300;max-width:420px;margin:0 auto;
+  }
+  .lead em{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--green);font-size:18px;}
+
+  .divider{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto;padding:8px 0;}
+  .divider .line{width:46px;height:1px;background:var(--gold-soft);}
+
+  /* ---- details ---- */
+  .details{background:var(--cream);}
+  .detail-grid{display:flex;flex-direction:column;gap:0;max-width:380px;margin:0 auto;}
+  .detail-row{
+    display:flex;align-items:center;gap:20px;
+    padding:22px 4px;border-bottom:1px solid rgba(201,168,76,.25);
+  }
+  .detail-row:last-child{border-bottom:none;}
+  .detail-row .ic{flex-shrink:0;color:var(--green);}
+  .detail-row .txt .k{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+  .detail-row .txt .v{font-family:'Cormorant Garamond',serif;font-size:21px;color:var(--ink);line-height:1.3;}
+  .map-btn{
+    display:block;text-align:center;margin:34px auto 0;
+    font-size:12px;letter-spacing:3px;text-transform:uppercase;
+    color:var(--green-deep);text-decoration:none;font-weight:500;
+    border:1px solid var(--green);border-radius:40px;padding:14px 30px;
+    max-width:240px;transition:.3s;
+  }
+  .map-btn:hover{background:var(--green);color:#fff;}
+
+  /* ---- countdown ---- */
+  .countdown{display:flex;justify-content:center;gap:0;max-width:400px;margin:0 auto;}
+  .cd{flex:1;text-align:center;position:relative;padding:0 4px;}
+  .cd:not(:last-child)::after{content:"";position:absolute;right:0;top:14%;height:54%;width:1px;background:var(--gold-soft);}
+  .cd .n{font-family:'Cormorant Garamond',serif;font-size:clamp(38px,11vw,52px);color:var(--green-deep);line-height:1;font-weight:500;}
+  .cd .l{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-top:10px;}
+
+  /* ---- gallery ---- */
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:440px;margin:0 auto;}
+  .g-item{
+    overflow:hidden;background:var(--cream);position:relative;
+    border:1px solid rgba(201,168,76,.3);
+    box-shadow:0 14px 30px -16px rgba(62,82,55,.4);
+  }
+  .g-item.tall{aspect-ratio:3/4;}
+  .g-item.wide{grid-column:1 / -1;aspect-ratio:16/9;}
+  .g-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease;}
+  .g-item:hover img{transform:scale(1.05);}
+  .g-item .ph{display:flex;align-items:center;justify-content:center;height:100%;}
+
+  /* ---- rsvp ---- */
+  .rsvp{background:linear-gradient(180deg,var(--green-deep),#33442D);color:var(--ivory);text-align:center;}
+  .rsvp .label{color:var(--gold-soft);}
+  .rsvp .heading{color:#fff;}
+  .rsvp .lead{color:rgba(255,255,255,.8);}
+  .btn-wpp{
+    display:inline-flex;align-items:center;gap:12px;
+    background:var(--ivory);color:var(--green-deep);
+    font-size:13px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+    padding:18px 38px;border-radius:50px;text-decoration:none;margin-top:30px;
+    transition:.3s;box-shadow:0 14px 30px -10px rgba(0,0,0,.4);
+  }
+  .btn-wpp:hover{transform:translateY(-2px);background:#fff;}
+  .btn-wpp svg{flex-shrink:0;}
+
+  /* ---- footer ---- */
+  footer{text-align:center;padding:56px 28px 70px;background:var(--green-deep);}
+  footer .fn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:30px;color:var(--gold-soft);}
+  footer .sig{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:14px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+    <!-- daisies SVG -->
+    <svg class="daisy-svg spin-slow" style="top:24px;left:-30px;width:120px;height:120px;" viewBox="0 0 100 100">
+      <use href="#daisy"/>
+    </svg>
+    <svg class="daisy-svg spin-rev" style="top:140px;right:-34px;width:90px;height:90px;opacity:.6;" viewBox="0 0 100 100">
+      <use href="#daisy"/>
+    </svg>
+
+    <div class="eyebrow reveal">Com carinho, convidamos você</div>
+    <h1 class="reveal">Isabela</h1>
+    <div class="age reveal">celebra seus três anos</div>
+    <div class="rule reveal"></div>
+
+    <div class="portrait-wrap reveal">
+      <svg class="daisy-svg corner spin-slow" style="top:-26px;left:-22px;width:64px;height:64px;" viewBox="0 0 100 100"><use href="#daisy"/></svg>
+      <svg class="daisy-svg corner spin-rev" style="bottom:-22px;right:-20px;width:52px;height:52px;" viewBox="0 0 100 100"><use href="#daisy"/></svg>
+      <div class="portrait">
+        <img src="WhatsApp%20Image%202026-06-17%20at%2019.36.59.jpeg" alt="Isabela">
+      </div>
+    </div>
+  </section>
+
+  <!-- MENSAGEM -->
+  <section class="block reveal">
+    <div class="label">O convite</div>
+    <h2 class="heading">Será uma alegria<br>ter você conosco</h2>
+    <p class="lead">É com o coração transbordando que celebramos mais um ano da nossa <em>Isabela</em>. Convidamos você para compartilhar deste momento e fazer parte das memórias que guardaremos para sempre.</p>
+    <div class="divider" style="margin-top:30px;"><span class="line"></span><svg width="22" height="22" viewBox="0 0 100 100"><use href="#daisy"/></svg><span class="line"></span></div>
+  </section>
+
+  <!-- DETALHES -->
+  <section class="block details reveal">
+    <div class="label">Quando &amp; Onde</div>
+    <h2 class="heading">Os detalhes</h2>
+    <div class="detail-grid">
+      <div class="detail-row">
+        <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="3" y="4.5" width="18" height="17" rx="2"/><path d="M3 9h18M8 2.5v4M16 2.5v4"/></svg>
+        <div class="txt"><div class="k">Data</div><div class="v">Sábado, 11 de julho de 2026</div></div>
+      </div>
+      <div class="detail-row">
+        <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/></svg>
+        <div class="txt"><div class="k">Horário</div><div class="v">a partir das 17 horas</div></div>
+      </div>
+      <div class="detail-row">
+        <svg class="ic" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 22s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        <div class="txt"><div class="k">Local</div><div class="v">Rua Assaí, 706 — Bloco A, ap. 23<br><span style="font-size:15px;color:var(--ink-soft)">Maringá · PR — CEP 87005-110</span></div></div>
+      </div>
+    </div>
+    <a class="map-btn" href="https://www.google.com/maps/search/?api=1&query=Rua+Assa%C3%AD+706+Maring%C3%A1+PR+87005110" target="_blank" rel="noopener">Abrir no mapa</a>
+  </section>
+
+  <!-- CONTAGEM -->
+  <section class="block reveal">
+    <div class="label">A contagem começou</div>
+    <h2 class="heading">Faltam</h2>
+    <div class="countdown">
+      <div class="cd"><div class="n" id="dias">--</div><div class="l">dias</div></div>
+      <div class="cd"><div class="n" id="horas">--</div><div class="l">horas</div></div>
+      <div class="cd"><div class="n" id="min">--</div><div class="l">min</div></div>
+      <div class="cd"><div class="n" id="seg">--</div><div class="l">seg</div></div>
+    </div>
+  </section>
+
+  <!-- GALERIA -->
+  <section class="block details reveal">
+    <div class="label">Momentos</div>
+    <h2 class="heading">Nossa pequena</h2>
+    <div class="gallery">
+      <div class="g-item tall"><img src="WhatsApp%20Image%202026-06-17%20at%2019.32.50.jpeg" alt="Isabela no balanço"></div>
+      <div class="g-item tall"><img src="WhatsApp%20Image%202026-06-17%20at%2019.34.38.jpeg" alt="Isabela de bicicleta"></div>
+      <div class="g-item tall"><img src="WhatsApp%20Image%202026-06-17%20at%2019.35.58.jpeg" alt="Isabela no Natal"></div>
+      <div class="g-item tall"><img src="WhatsApp%20Image%202026-06-17%20at%2019.36.59.jpeg" alt="Isabela no parque"></div>
+      <div class="g-item wide" style="aspect-ratio:3/4;background:#111"><img src="WhatsApp%20Image%202026-06-17%20at%2019.49.44.jpeg" alt="Família" style="object-fit:contain"></div>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section class="block rsvp reveal">
+    <div class="label">Confirmação</div>
+    <h2 class="heading">Sua presença é<br>o nosso presente</h2>
+    <p class="lead">Para nos ajudar na organização, confirme sua presença pelo WhatsApp. Será um prazer receber você.</p>
+    <a class="btn-wpp" id="btnWpp" href="#" target="_blank" rel="noopener">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163a11.867 11.867 0 0 1-1.587-5.946C.16 5.335 5.495 0 12.05 0a11.82 11.82 0 0 1 8.413 3.488 11.82 11.82 0 0 1 3.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.9 11.9 0 0 1-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.86 9.86 0 0 0 1.512 5.26l-.999 3.648 3.985-1.607zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Confirmar presença
+    </a>
+  </section>
+
+  <footer>
+    <svg width="40" height="40" viewBox="0 0 100 100" style="margin-bottom:18px;"><use href="#daisy"/></svg>
+    <div class="fn">Te esperamos</div>
+    <div class="sig">Com amor · Família Isabela</div>
+  </footer>
+
+</div>
+
+<!-- ===== SVG DAISY DEFINITION ===== -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="daisy">
+      <g fill="#FCFBF7" stroke="#E3D3A0" stroke-width="0.6">
+        <ellipse cx="50" cy="22" rx="8" ry="17"/>
+        <ellipse cx="50" cy="78" rx="8" ry="17"/>
+        <ellipse cx="22" cy="50" rx="17" ry="8"/>
+        <ellipse cx="78" cy="50" rx="17" ry="8"/>
+        <ellipse cx="30" cy="30" rx="8" ry="17" transform="rotate(45 30 30)"/>
+        <ellipse cx="70" cy="30" rx="8" ry="17" transform="rotate(-45 70 30)"/>
+        <ellipse cx="30" cy="70" rx="8" ry="17" transform="rotate(-45 30 70)"/>
+        <ellipse cx="70" cy="70" rx="8" ry="17" transform="rotate(45 70 70)"/>
+      </g>
+      <circle cx="50" cy="50" r="11" fill="#E8B84B"/>
+      <circle cx="50" cy="50" r="11" fill="none" stroke="#C9A84C" stroke-width="1"/>
+    </g>
+  </defs>
+</svg>
+
+<script>
+  // contagem regressiva
+  const alvo = new Date('2026-07-11T17:00:00-03:00').getTime();
+  function tick(){
+    const dist = alvo - Date.now();
+    const cd = document.querySelector('.countdown');
+    if(dist < 0){ cd.innerHTML='<div style="font-family:Cormorant Garamond,serif;font-size:30px;color:var(--green-deep)">É hoje!</div>'; return; }
+    const d=Math.floor(dist/864e5), h=Math.floor(dist%864e5/36e5), m=Math.floor(dist%36e5/6e4), s=Math.floor(dist%6e4/1e3);
+    dias.textContent=d; horas.textContent=String(h).padStart(2,'0'); min.textContent=String(m).padStart(2,'0'); seg.textContent=String(s).padStart(2,'0');
+  }
+  tick(); setInterval(tick,1000);
+
+  // whatsapp — TROQUE o número (55 + DDD + número)
+  const numeroWpp='5544991062421';
+  const texto=encodeURIComponent('Olá! Confirmo presença na festa de 3 anos da Isabela.');
+  document.getElementById('btnWpp').href=`https://wa.me/${numeroWpp}?text=${texto}`;
+
+  // reveal on scroll
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('in')}),{threshold:.12});
+  document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3*.08)+'s';io.observe(el)});
+</script>
+</body>
+</html>
